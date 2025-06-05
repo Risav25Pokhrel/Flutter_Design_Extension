@@ -15,8 +15,8 @@ class AppBrand extends Brand {
       interaction: ColorInteraction(
         main: isDarkMode ? const Color(0xFFEBEAEE) : const Color(0xFF1D1C1C),
         hover: isDarkMode
-            ? Colors.white24.withOpacity(0.5)
-            : const Color(0xFF003366).withOpacity(0.5),
+            ? Colors.white24.withValues(alpha:0.5)
+            : const Color(0xFF003366).withValues(alpha:0.5),
         pressed: isDarkMode ? Colors.white24 : const Color(0xFF003366),
       ),
       neutral: isDarkMode ? ColorNeutralDark() : ColorNeutralLight(),

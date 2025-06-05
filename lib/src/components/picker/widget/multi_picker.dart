@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_design_extension/src/components/picker/style/picker_style.dart';
 
-typedef MultipleCallback(List<String> res, List<int> position);
+typedef MultipleCallback = Function(List<String> res, List<int> position);
 
 class MultiplePickerRoute<T> extends PopupRoute<T> {
   MultiplePickerRoute({
@@ -15,8 +15,8 @@ class MultiplePickerRoute<T> extends PopupRoute<T> {
     this.onCancel,
     this.theme,
     this.barrierLabel,
-    RouteSettings? settings,
-  }) : super(settings: settings);
+    super.settings,
+  });
 
   final List<List<String>> data;
   final List<String> selectData;
@@ -83,13 +83,13 @@ class MultiplePickerRoute<T> extends PopupRoute<T> {
 }
 
 class _PickerContentView extends StatefulWidget {
-  _PickerContentView({
-    Key? key,
+  const _PickerContentView({
+    super.key,
     required this.data,
     required this.pickerStyle,
     required this.selectData,
     required this.route,
-  }) : super(key: key);
+  });
 
   final List<List<String>> data;
   final List<String> selectData;
@@ -98,14 +98,14 @@ class _PickerContentView extends StatefulWidget {
 
   @override
   State<StatefulWidget> createState() =>
-      _PickerState(this.data, this.selectData, this.pickerStyle);
+      _PickerState(data, selectData, pickerStyle);
 }
 
 class _PickerState extends State<_PickerContentView> {
   final PickerStyle _pickerStyle;
   late List<String> _selectData;
   late List<int> _selectDataPosition;
-  List<List<String>> _data;
+  final List<List<String>> _data;
 
   AnimationController? controller;
   Animation<double>? animation;
@@ -113,15 +113,15 @@ class _PickerState extends State<_PickerContentView> {
   List<FixedExtentScrollController> scrollCtrl = [];
 
   _PickerState(this._data, List mSelectData, this._pickerStyle) {
-    this._selectData = [];
-    this._selectDataPosition = [];
-    this._data.asMap().keys.forEach((index) {
+    _selectData = [];
+    _selectDataPosition = [];
+    _data.asMap().keys.forEach((index) {
       if (index >= mSelectData.length) {
-        this._selectData.add('');
+        _selectData.add('');
       } else {
-        this._selectData.add(mSelectData[index]);
+        _selectData.add(mSelectData[index]);
       }
-      this._selectDataPosition.add(0);
+      _selectDataPosition.add(0);
     });
 
     _init();
@@ -129,9 +129,9 @@ class _PickerState extends State<_PickerContentView> {
 
   @override
   void dispose() {
-    scrollCtrl.forEach((element) {
+    for (var element in scrollCtrl) {
       element.dispose();
-    });
+    }
     super.dispose();
   }
 
@@ -162,7 +162,7 @@ class _PickerState extends State<_PickerContentView> {
     int pindex;
     scrollCtrl.clear();
 
-    this._data.asMap().keys.forEach((index) {
+    _data.asMap().keys.forEach((index) {
       pindex = 0;
       pindex = _data[index].indexWhere(
           (element) => element.toString() == _selectData[index].toString());
@@ -211,7 +211,7 @@ class _PickerState extends State<_PickerContentView> {
 
   Widget _renderItemView() {
     List<Widget> pickerList =
-        List.generate(this._data.length, (index) => pickerView(index)).toList();
+        List.generate(_data.length, (index) => pickerView(index)).toList();
 
     return Container(
       height: _pickerStyle.pickerHeight,

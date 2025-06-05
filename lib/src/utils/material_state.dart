@@ -19,18 +19,18 @@ class DesignMaterialStateColor {
   });
 }
 
-/// Maps the current material button state [MaterialState] to the corresponding
+/// Maps the current material button state [WidgetState] to the corresponding
 /// state in the [materialStateColorMap].
 DesignMaterialStateColor resolveMaterialState({
-  required Set<MaterialState> states,
+  required Set<WidgetState> states,
   required Map<DesignMaterialState, DesignMaterialStateColor>
       materialStateColorMap,
 }) {
-  if (states.contains(MaterialState.disabled)) {
+  if (states.contains(WidgetState.disabled)) {
     return materialStateColorMap[DesignMaterialState.disabled]!;
-  } else if (states.contains(MaterialState.pressed)) {
+  } else if (states.contains(WidgetState.pressed)) {
     return materialStateColorMap[DesignMaterialState.pressed]!;
-  } else if (states.contains(MaterialState.hovered)) {
+  } else if (states.contains(WidgetState.hovered)) {
     return materialStateColorMap[DesignMaterialState.hovered]!;
   }
 

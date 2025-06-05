@@ -5,21 +5,22 @@ class CoreButtonStyle extends ButtonStyle {
   final DesignTokensThemeExtension theme;
   final bool hasLeftIcon; // adds padding in case of leftIcon present
   final bool hasRightIcon; // adds padding  in case of rightIcon present
-  final MaterialStateProperty<TextStyle?>? textStyle;
+  @override
+  final WidgetStateProperty<TextStyle?>? textStyle;
   CoreButtonStyle({
     required this.theme,
-    required MaterialStateProperty<Color?>? backgroundColor,
-    required MaterialStateProperty<Color?>? foregroundColor,
+    required super.backgroundColor,
+    required super.foregroundColor,
     required this.hasLeftIcon,
     required this.hasRightIcon,
-    MaterialStateProperty<BorderSide?>? side,
+    super.side,
     this.textStyle,
   })  : assert(
           !(hasLeftIcon == true && hasRightIcon == true),
           'Please specify only one of the icons inside buttons.',
         ),
         super(
-          padding: MaterialStatePropertyAll(
+          padding: WidgetStatePropertyAll(
             EdgeInsets.symmetric(
               horizontal: theme.spacings.spacing16,
             ).copyWith(
@@ -28,20 +29,16 @@ class CoreButtonStyle extends ButtonStyle {
               right: hasRightIcon == true ? theme.spacings.spacing12 : null,
             ),
           ),
-          textStyle: textStyle ??
-              MaterialStatePropertyAll(theme.textStyles.buttonText),
-          backgroundColor: backgroundColor,
-          foregroundColor: foregroundColor,
-          side: side,
+          textStyle:
+              textStyle ?? WidgetStatePropertyAll(theme.textStyles.buttonText),
           splashFactory: NoSplash.splashFactory,
           elevation: null,
-          shadowColor:
-              MaterialStatePropertyAll(theme.colors.neutral.transparent),
+          shadowColor: WidgetStatePropertyAll(theme.colors.neutral.transparent),
           surfaceTintColor:
-              MaterialStatePropertyAll(theme.colors.neutral.transparent),
+              WidgetStatePropertyAll(theme.colors.neutral.transparent),
           overlayColor:
-              MaterialStatePropertyAll(theme.colors.neutral.transparent),
-          shape: MaterialStatePropertyAll(
+              WidgetStatePropertyAll(theme.colors.neutral.transparent),
+          shape: WidgetStatePropertyAll(
             RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(
                 theme.borderRadiuses.borderRadiusSmall,

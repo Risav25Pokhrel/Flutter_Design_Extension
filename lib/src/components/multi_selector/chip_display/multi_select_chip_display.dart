@@ -49,6 +49,7 @@ class MultiSelectChipDisplay<V> extends StatelessWidget {
   bool? disabled;
 
   MultiSelectChipDisplay({
+    super.key,
     this.items,
     this.onTap,
     this.chipColor,
@@ -67,6 +68,7 @@ class MultiSelectChipDisplay<V> extends StatelessWidget {
   }
 
   MultiSelectChipDisplay.none({
+    super.key,
     this.items = const [],
     this.disabled = true,
     this.onTap,
@@ -91,7 +93,7 @@ class MultiSelectChipDisplay<V> extends StatelessWidget {
       alignment: alignment ?? Alignment.centerLeft,
       padding: EdgeInsets.symmetric(horizontal: scroll ? 0 : 10),
       child: scroll
-          ? Container(
+          ? SizedBox(
               width: MediaQuery.of(context).size.width,
               height: height ?? MediaQuery.of(context).size.height * 0.08,
               child: scrollBar != null
@@ -135,11 +137,11 @@ class MultiSelectChipDisplay<V> extends StatelessWidget {
             ? Icon(
                 icon!.icon,
                 color: colorator != null && colorator!(item.value) != null
-                    ? colorator!(item.value)!.withOpacity(1)
+                    ? colorator!(item.value)!.withValues(alpha: 1)
                     : icon!.color ?? Theme.of(context).primaryColor,
               )
             : null,
-        label: Container(
+        label: SizedBox(
           width: chipWidth,
           child: Text(
             item.label,
@@ -151,19 +153,16 @@ class MultiSelectChipDisplay<V> extends StatelessWidget {
                       : colorator!(item.value)
                   : textStyle != null && textStyle!.color != null
                       ? textStyle!.color
-                      : chipColor != null
-                          ? chipColor!.withOpacity(1)
-                          : null,
-              fontSize: textStyle != null ? textStyle!.fontSize : null,
+                      : chipColor?.withValues(alpha: 1),
+              fontSize: textStyle?.fontSize,
             ),
           ),
         ),
         selected: items!.contains(item),
         selectedColor: colorator != null && colorator!(item.value) != null
             ? colorator!(item.value)
-            : chipColor != null
-                ? chipColor
-                : Theme.of(context).primaryColor.withOpacity(0.33),
+            : chipColor ??
+                Theme.of(context).primaryColor.withValues(alpha: 0.33),
         onSelected: (_) {
           if (onTap != null) onTap!(item.value);
         },

@@ -14,7 +14,7 @@ class CoreTextButton extends StatelessWidget {
   final Widget? rightIconWidget;
   final void Function()? onPressed;
   final TextStyle? style;
-  final MaterialStateProperty<TextStyle?>? textStyle;
+  final WidgetStateProperty<TextStyle?>? textStyle;
   const CoreTextButton({
     required this.label,
     required this.height,
@@ -25,13 +25,12 @@ class CoreTextButton extends StatelessWidget {
     this.onPressed,
     this.style,
     this.textStyle,
-    Key? key,
-  })  : assert(
+    super.key,
+  }) : assert(
           !((leftIcon != null || leftIconWidget != null) &&
               (rightIcon != null || rightIconWidget != null)),
           'Please specify only one of the icons inside buttons.',
-        ),
-        super(key: key);
+        );
 
   @override
   Widget build(BuildContext context) {
@@ -47,13 +46,13 @@ class CoreTextButton extends StatelessWidget {
           textStyle: textStyle,
           hasLeftIcon: leftIcon != null || leftIconWidget != null,
           hasRightIcon: rightIcon != null || rightIconWidget != null,
-          backgroundColor: MaterialStateProperty.resolveWith(
+          backgroundColor: WidgetStateProperty.resolveWith(
             (states) => resolveMaterialState(
               materialStateColorMap: materialStateColorMap,
               states: states,
             ).bgColor,
           ),
-          foregroundColor: MaterialStateProperty.resolveWith(
+          foregroundColor: WidgetStateProperty.resolveWith(
             (states) => resolveMaterialState(
               materialStateColorMap: materialStateColorMap,
               states: states,

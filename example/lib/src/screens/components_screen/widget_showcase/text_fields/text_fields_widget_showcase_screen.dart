@@ -245,7 +245,7 @@ class _TextFieldsWidgetShowcaseScreenState
             MultiSelectItem("B", "B"),
             MultiSelectItem("C", "C")
           ],
-          initialValue: ["A,", "C"],
+          initialValue: const ["A,", "C"],
           isSingleSelectionEnabled: true,
           isDismissible: true,
           onConfirm: (p0) {},
@@ -273,7 +273,7 @@ class _TextFieldsWidgetShowcaseScreenState
             MultiSelectItem("B", "B"),
             MultiSelectItem("C", "C")
           ],
-          initialValue: ["A,", "C"],
+          initialValue: const ["A,", "C"],
           isDismissible: true,
           onConfirm: (p0) {},
         ),
@@ -322,8 +322,8 @@ class _TextFieldsWidgetShowcaseScreenState
             ["R", "S", "T"],
             ["A", "B", "C"],
           ],
-          suffix: ["", " A", " B"],
-          selectData: ["N", "T", "C"],
+          suffix: const ["", " A", " B"],
+          selectData: const ["N", "T", "C"],
           onCancel: (isCancel) {
             print(isCancel);
           },

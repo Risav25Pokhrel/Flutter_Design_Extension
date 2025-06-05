@@ -19,7 +19,7 @@ class ElevationToken {
 
   /// Function that returns a [BoxShadow] with current [ElevationToken] values.
   BoxShadow getBoxShadow() => BoxShadow(
-        color: color.withOpacity(opacity),
+        color: color.withValues(alpha:opacity),
         blurRadius: blurRadius,
         spreadRadius: spreadRadius,
         offset: Offset(xOffset, yOffset),

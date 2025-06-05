@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_design_extension/flutter_design_extension.dart';
-import 'package:flutter_design_extension/src/components/picker/picker.dart';
-import 'package:flutter_design_extension/src/components/picker/style/picker_style.dart';
 
 class DesignMultiColumnPickerTextField extends StatefulWidget {
   final String placeholderText;
@@ -60,9 +58,9 @@ class DesignMultiColumnPickerTextField extends StatefulWidget {
     this.status = status ??
         DesignTextFieldStatus(statusType: DesignTextFieldStatusType.active);
     if (selectData != null && selectData!.isNotEmpty) {
-      this.textEditingController.text = this.onDisplay == null
+      this.textEditingController.text = onDisplay == null
           ? selectData!.join(", ")
-          : this.onDisplay!(selectData!, []);
+          : onDisplay!(selectData!, []);
     }
   }
 

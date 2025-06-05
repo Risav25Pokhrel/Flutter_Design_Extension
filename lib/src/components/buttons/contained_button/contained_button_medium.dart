@@ -12,7 +12,7 @@ class DesignContainedButtonMedium extends StatelessWidget {
 
   final void Function()? onPressed;
   final TextStyle? style;
-  final MaterialStateProperty<TextStyle?>? textStyle;
+  final WidgetStateProperty<TextStyle?>? textStyle;
   const DesignContainedButtonMedium({
     required this.label,
     this.leftIcon,

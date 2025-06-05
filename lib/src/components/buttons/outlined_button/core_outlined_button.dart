@@ -14,7 +14,7 @@ class CoreOutlinedButton extends StatelessWidget {
   final Widget? rightIconWidget;
   final void Function()? onPressed;
   final TextStyle? style;
-  final MaterialStateProperty<TextStyle?>? textStyle;
+  final WidgetStateProperty<TextStyle?>? textStyle;
   const CoreOutlinedButton({
     required this.label,
     required this.height,
@@ -25,13 +25,12 @@ class CoreOutlinedButton extends StatelessWidget {
     this.rightIconWidget,
     this.style,
     this.textStyle,
-    Key? key,
-  })  : assert(
+    super.key,
+  }) : assert(
           !((leftIcon != null || leftIconWidget != null) &&
               (rightIcon != null || rightIconWidget != null)),
           'Please specify only one of the icons inside buttons.',
-        ),
-        super(key: key);
+        );
 
   @override
   Widget build(BuildContext context) {
@@ -47,19 +46,19 @@ class CoreOutlinedButton extends StatelessWidget {
           textStyle: textStyle,
           hasLeftIcon: leftIcon != null || leftIconWidget != null,
           hasRightIcon: rightIcon != null || rightIconWidget != null,
-          backgroundColor: MaterialStateProperty.resolveWith(
+          backgroundColor: WidgetStateProperty.resolveWith(
             (states) => resolveMaterialState(
               materialStateColorMap: materialStateColorMap,
               states: states,
             ).bgColor,
           ),
-          foregroundColor: MaterialStateProperty.resolveWith(
+          foregroundColor: WidgetStateProperty.resolveWith(
             (states) => resolveMaterialState(
               materialStateColorMap: materialStateColorMap,
               states: states,
             ).fgColor,
           ),
-          side: MaterialStateProperty.resolveWith(
+          side: WidgetStateProperty.resolveWith(
             (states) => BorderSide(
               color: resolveMaterialState(
                 materialStateColorMap: materialStateColorMap,

@@ -7,8 +7,8 @@ class BottomSheetHandleWidget extends StatelessWidget {
   final double height = 4;
 
   const BottomSheetHandleWidget({
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {

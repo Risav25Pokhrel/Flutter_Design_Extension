@@ -11,7 +11,7 @@ class DesignOutlinedButtonSmall extends StatelessWidget {
   final Widget? rightIconWidget;
   final void Function()? onPressed;
   final TextStyle? style;
-  final MaterialStateProperty<TextStyle?>? textStyle;
+  final WidgetStateProperty<TextStyle?>? textStyle;
   const DesignOutlinedButtonSmall({
     required this.label,
     this.leftIcon,
