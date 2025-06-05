@@ -491,7 +491,7 @@ class __MultiSelectChipFieldViewState<V>
                     widget.icon!.icon,
                     color: widget.colorator != null &&
                             widget.colorator!(item.value) != null
-                        ? widget.colorator!(item.value)!.withOpacity(1)
+                        ? widget.colorator!(item.value)!.withValues(alpha:1)
                         : widget.icon!.color ??
                             widget.selectedChipColor ??
                             Theme.of(context).primaryColor,
@@ -507,7 +507,7 @@ class __MultiSelectChipFieldViewState<V>
                 ? TextStyle(
                     color: widget.colorator != null &&
                             widget.colorator!(item.value) != null
-                        ? widget.colorator!(item.value)!.withOpacity(1)
+                        ? widget.colorator!(item.value)!.withValues(alpha:1)
                         : widget.selectedTextStyle != null
                             ? widget.selectedTextStyle!.color
                             : null)
@@ -528,7 +528,7 @@ class __MultiSelectChipFieldViewState<V>
                 ? widget.colorator!(item.value)
                 : widget.selectedChipColor != null
                     ? widget.selectedChipColor
-                    : Theme.of(context).primaryColor.withOpacity(0.33),
+                    : Theme.of(context).primaryColor.withValues(alpha:0.33),
         onSelected: (_) {
           if (_) {
             _selectedValues.add(item.value);

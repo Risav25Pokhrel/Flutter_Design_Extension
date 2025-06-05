@@ -199,14 +199,14 @@ class _MultiSelectBottomSheetState<T> extends State<MultiSelectBottomSheet<T>> {
                 ? widget.colorator!(item.value)
                 : widget.selectedColor != null
                     ? widget.selectedColor
-                    : Theme.of(context).primaryColor.withOpacity(0.35),
+                    : Theme.of(context).primaryColor.withValues(alpha:0.35),
         label: Text(
           item.label,
           style: _selectedValues.contains(item.value)
               ? TextStyle(
                   color: widget.selectedItemsTextStyle?.color ??
                       widget.colorator?.call(item.value) ??
-                      widget.selectedColor?.withOpacity(1) ??
+                      widget.selectedColor?.withValues(alpha:1) ??
                       Theme.of(context).primaryColor,
                   fontSize: widget.selectedItemsTextStyle != null
                       ? widget.selectedItemsTextStyle!.fontSize
@@ -357,7 +357,7 @@ class _MultiSelectBottomSheetState<T> extends State<MultiSelectBottomSheet<T>> {
                                   color: (widget.selectedColor != null &&
                                           widget.selectedColor !=
                                               Colors.transparent)
-                                      ? widget.selectedColor!.withOpacity(1)
+                                      ? widget.selectedColor!.withValues(alpha:1)
                                       : Theme.of(context).primaryColor,
                                 ),
                               ),
@@ -377,7 +377,7 @@ class _MultiSelectBottomSheetState<T> extends State<MultiSelectBottomSheet<T>> {
                                   color: (widget.selectedColor != null &&
                                           widget.selectedColor !=
                                               Colors.transparent)
-                                      ? widget.selectedColor!.withOpacity(1)
+                                      ? widget.selectedColor!.withValues(alpha:1)
                                       : Theme.of(context).primaryColor,
                                 ),
                               ),

@@ -367,7 +367,7 @@ class __MultiSelectBottomSheetFieldViewState<V>
           chipColor: widget.chipDisplay!.chipColor ??
               ((widget.selectedColor != null &&
                       widget.selectedColor != Colors.transparent)
-                  ? widget.selectedColor!.withOpacity(0.35)
+                  ? widget.selectedColor!.withValues(alpha:0.35)
                   : null),
           alignment: widget.chipDisplay!.alignment,
           textStyle: widget.chipDisplay!.textStyle,
@@ -386,7 +386,7 @@ class __MultiSelectBottomSheetFieldViewState<V>
         colorator: widget.colorator,
         chipColor: (widget.selectedColor != null &&
                 widget.selectedColor != Colors.transparent)
-            ? widget.selectedColor!.withOpacity(0.35)
+            ? widget.selectedColor!.withValues(alpha:0.35)
             : null,
       );
     }
@@ -456,7 +456,7 @@ class __MultiSelectBottomSheetFieldViewState<V>
                       border: Border(
                         bottom: BorderSide(
                           color: widget.state != null && widget.state!.hasError
-                              ? Colors.red.shade800.withOpacity(0.6)
+                              ? Colors.red.shade800.withValues(alpha:0.6)
                               : _selectedItems.isNotEmpty
                                   ? (widget.selectedColor != null &&
                                           widget.selectedColor !=

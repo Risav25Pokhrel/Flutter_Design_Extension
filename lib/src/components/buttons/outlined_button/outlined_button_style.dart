@@ -16,14 +16,14 @@ Map<DesignMaterialState, DesignMaterialStateColor>
             borderColor: theme.colors.neutral.gray40,
           ),
           DesignMaterialState.hovered: DesignMaterialStateColor(
-            bgColor: theme.colors.interaction.main.withOpacity(
+            bgColor: theme.colors.interaction.main.withValues(alpha:
               theme.opacities.opacity10,
             ),
             fgColor: theme.colors.interaction.main,
             borderColor: theme.colors.interaction.main,
           ),
           DesignMaterialState.pressed: DesignMaterialStateColor(
-            bgColor: theme.colors.interaction.main.withOpacity(
+            bgColor: theme.colors.interaction.main.withValues(alpha:
               theme.opacities.opacity24,
             ),
             fgColor: theme.colors.interaction.main,

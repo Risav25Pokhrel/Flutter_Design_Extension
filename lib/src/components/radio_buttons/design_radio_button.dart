@@ -65,8 +65,8 @@ class DesignRadioButton<T> extends StatelessWidget {
       return theme.colors.neutral.transparent;
     }
     return _selected
-        ? theme.colors.interaction.hover.withOpacity(0.1)
-        : theme.colors.neutral.gray50.withOpacity(0.1);
+        ? theme.colors.interaction.hover.withValues(alpha:0.1)
+        : theme.colors.neutral.gray50.withValues(alpha:0.1);
   }
 
   Color _splashColor(bool enabled, DesignTokensThemeExtension theme) {
@@ -74,8 +74,8 @@ class DesignRadioButton<T> extends StatelessWidget {
       return theme.colors.neutral.transparent;
     }
     return _selected
-        ? theme.colors.interaction.pressed.withOpacity(0.2)
-        : theme.colors.neutral.gray50.withOpacity(0.2);
+        ? theme.colors.interaction.pressed.withValues(alpha:0.2)
+        : theme.colors.neutral.gray50.withValues(alpha:0.2);
   }
 
   Color _borderColor(bool enabled, DesignTokensThemeExtension theme) {

@@ -190,14 +190,14 @@ class _MultiSelectDialogState<T> extends State<MultiSelectDialog<T>> {
         backgroundColor: widget.unselectedColor,
         selectedColor: widget.colorator?.call(item.value) ??
             widget.selectedColor ??
-            Theme.of(context).primaryColor.withOpacity(0.35),
+            Theme.of(context).primaryColor.withValues(alpha:0.35),
         label: Text(
           item.label,
           style: item.selected
               ? TextStyle(
                   color: widget.selectedItemsTextStyle?.color ??
                       widget.colorator?.call(item.value) ??
-                      widget.selectedColor?.withOpacity(1) ??
+                      widget.selectedColor?.withValues(alpha:1) ??
                       Theme.of(context).primaryColor,
                   fontSize: widget.selectedItemsTextStyle?.fontSize,
                 )
@@ -312,7 +312,7 @@ class _MultiSelectDialogState<T> extends State<MultiSelectDialog<T>> {
                 style: TextStyle(
                   color: (widget.selectedColor != null &&
                           widget.selectedColor != Colors.transparent)
-                      ? widget.selectedColor!.withOpacity(1)
+                      ? widget.selectedColor!.withValues(alpha:1)
                       : Theme.of(context).primaryColor,
                 ),
               ),
@@ -327,7 +327,7 @@ class _MultiSelectDialogState<T> extends State<MultiSelectDialog<T>> {
                 style: TextStyle(
                   color: (widget.selectedColor != null &&
                           widget.selectedColor != Colors.transparent)
-                      ? widget.selectedColor!.withOpacity(1)
+                      ? widget.selectedColor!.withValues(alpha:1)
                       : Theme.of(context).primaryColor,
                 ),
               ),

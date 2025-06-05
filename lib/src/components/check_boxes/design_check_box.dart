@@ -44,9 +44,9 @@ class DesignCheckBox extends StatelessWidget {
       return theme.colors.neutral.transparent;
     }
     if (value == null || value == true) {
-      return theme.colors.interaction.hover.withOpacity(0.1);
+      return theme.colors.interaction.hover.withValues(alpha:0.1);
     }
-    return theme.colors.neutral.gray50.withOpacity(0.1);
+    return theme.colors.neutral.gray50.withValues(alpha:0.1);
   }
 
   Color _splashColor(
@@ -55,9 +55,9 @@ class DesignCheckBox extends StatelessWidget {
       return theme.colors.neutral.transparent;
     }
     if (value == null || value == true) {
-      return theme.colors.interaction.pressed.withOpacity(0.2);
+      return theme.colors.interaction.pressed.withValues(alpha:0.2);
     }
-    return theme.colors.neutral.gray50.withOpacity(0.2);
+    return theme.colors.neutral.gray50.withValues(alpha:0.2);
   }
 
   IconData _iconData(DesignTokensThemeExtension theme, bool? value) {
